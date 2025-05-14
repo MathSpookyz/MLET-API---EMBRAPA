@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from diskcache import Cache
+
+cache = Cache("./cache") 
 
 def separar_texto_concatenado(texto):
     # Separa palavras concatenadas com letras maiúsculas no meio
@@ -40,7 +43,7 @@ def scrape_tabelas(ano: int, subopcao: str, opcao: str = None):
     tabela_principal = soup.find("table", class_="tb_base tb_dados")
 
     if not tabela_principal:
-        return []
+        raise ValueError(f"[Erro] Nenhuma tabela encontrada para ano={ano}, opcao={opcao}, subopcao={subopcao}")
 
     dados_tabela = []
     for linha in tabela_principal.find_all("tr"):
