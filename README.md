@@ -1,0 +1,24 @@
+Projeto Viniculas - Tech Challenge Fiap
+
+O Projeto segue a seguinte arquitetura:
+
+![arquitetura](./projeto-fiap.drawio.png)
+
+```mermaid
+sequenceDiagram
+    box Green Python Backend
+    actor Usuário
+    participant RestBackend
+    participant Scraper
+    participant Cache
+    end
+    box Blue Site Embrapa
+    participant Vitivinicultura
+    end    
+    Usuário->>RestBackend: Chamada do endpoint /producao
+    RestBackend->> Scraper: Requisita busca de dados da Vinicula
+    Scraper ->> Cache: Valida cache de dados
+    Scraper ->> Vitivinicultura: Dados expirados, busca de dados direto no site
+    Vitivinicultura ->> Scraper: Retorno de dados
+    RestBackend->>Usuário: Resposta REST com os dados buscados sobre produção
+```
