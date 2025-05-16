@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: MLET-API---EMBRAPA
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host=127.0.0.1 --port=8000"
+    env: python
+    plan: free
+    autoDeploy: true
