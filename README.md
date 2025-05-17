@@ -22,3 +22,6 @@ sequenceDiagram
     Vitivinicultura ->> Scraper: Retorno de dados
     RestBackend->>Usuário: Resposta REST com os dados buscados sobre produção
 ```
+
+Buildar imagem com "sudo DOCKER_BUILDKIT=1 docker-compose build"
+Executar imagem com "sudo docker-compose up -d"
