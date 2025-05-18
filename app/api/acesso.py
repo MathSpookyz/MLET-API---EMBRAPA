@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Form, HTTPException, status
-from app.auth.security import verificar_senha
-from app.auth.auth import criar_token
-from app.auth.models import usuarios_fake
+from app.security.security import verificar_senha
+from app.security.authentication import criar_token
+from app.security.models import usuarios_fake
 
 router = APIRouter()
 

@@ -1,3 +1,6 @@
 fastapi==0.115.12
 requests==2.32.3
-BeautifulSoup==3.2.2
+beautifulsoup4==4.13.4 
+pydantic==2.11.4 
+passlib==1.7.4 
+python-jose==3.4.0 
