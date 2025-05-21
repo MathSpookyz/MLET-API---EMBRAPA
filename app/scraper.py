@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from diskcache import Cache
+from app.db import salvar_dataframe
+import pandas as pd
 
 cache = Cache("./cache") 
 
@@ -54,5 +56,10 @@ def scrape_tabelas(ano: int, subopcao: str, opcao: str = None):
             dados_limpos = limpar_linha(dados_linha)
             if dados_limpos:
                 dados_tabela.append(dados_limpos)
+
+    if dados_tabela:
+        df = pd.DataFrame(dados_tabela)
+        nome_tabela = f"tabela_{opcao}_{subopcao}_{ano}".replace("-", "_")
+        salvar_dataframe(nome_tabela, df)
 
     return dados_tabela

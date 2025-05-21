@@ -4,6 +4,6 @@ from .security import gerar_hash_senha
 usuarios_fake = {
     "admin": {
         "username": "admin",
-        "senha_hash": gerar_hash_senha("admin123")  # ou já salve a hash pronta
+        "senha_hash": gerar_hash_senha("admin123")
     }
 }
