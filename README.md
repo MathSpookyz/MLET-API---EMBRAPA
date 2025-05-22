@@ -1,9 +1,17 @@
 Projeto Viniculas - Tech Challenge Fiap
 
 O Projeto segue a seguinte arquitetura:
+/app - raiz do projeto
+    - /api - endpoint que podem ser acessados externamente
+    - /cache - cache de dados
+    - /datasource - acesso a dados externos e banco de dados
+    - /security - controle de acesso e geração de token de segurança
 
+## Arquitetura da aplicação
 ![arquitetura](./projeto-fiap.drawio.png)
 
+
+## Gráfico de fluxo de acesso da aplicação
 ```mermaid
 sequenceDiagram
     box Green Python Backend

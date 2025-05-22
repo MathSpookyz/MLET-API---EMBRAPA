@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from diskcache import Cache
-from app.db import salvar_dataframe
+from app.datasource.db_queries import salvar_dataframe
 import pandas as pd
 
 cache = Cache("./cache") 

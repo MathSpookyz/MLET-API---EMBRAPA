@@ -1,11 +1,10 @@
 from fastapi import APIRouter, Query, Depends
-from app.scraper import scrape_tabelas
-from app.db import salvar_dataframe
+from app.datasource.scraper import scrape_tabelas
 from typing import Optional
 from app.security.authentication import Usuario, verificar_token
 from pydantic import BaseModel
 import time
-from app.db_utils import listar_tabelas
+from app.datasource.db_queries import listar_tabelas
 import pandas as pd
 import sqlite3
 
