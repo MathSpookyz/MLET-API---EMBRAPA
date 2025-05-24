@@ -1,6 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from diskcache import Cache
+from app.datasource.db_queries import salvar_dataframe
+import pandas as pd
+
+cache = Cache("./cache") 
 
 def separar_texto_concatenado(texto):
     # Separa palavras concatenadas com letras maiúsculas no meio
@@ -40,7 +45,7 @@ def scrape_tabelas(ano: int, subopcao: str, opcao: str = None):
     tabela_principal = soup.find("table", class_="tb_base tb_dados")
 
     if not tabela_principal:
-        return []
+        raise ValueError(f"[Erro] Nenhuma tabela encontrada para ano={ano}, opcao={opcao}, subopcao={subopcao}")
 
     dados_tabela = []
     for linha in tabela_principal.find_all("tr"):
@@ -52,4 +57,13 @@ def scrape_tabelas(ano: int, subopcao: str, opcao: str = None):
             if dados_limpos:
                 dados_tabela.append(dados_limpos)
 
-    return dados_tabela
+    try:
+        if dados_tabela:
+            df = pd.DataFrame(dados_tabela)
+            nome_tabela = f"tabela_{opcao}_{subopcao}_{ano}".replace("-", "_")
+            salvar_dataframe(nome_tabela, df)
+        return dados_tabela
+    except Exception:
+        return dados_tabela
+
+    
