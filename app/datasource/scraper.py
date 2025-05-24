@@ -57,9 +57,13 @@ def scrape_tabelas(ano: int, subopcao: str, opcao: str = None):
             if dados_limpos:
                 dados_tabela.append(dados_limpos)
 
-    if dados_tabela:
-        df = pd.DataFrame(dados_tabela)
-        nome_tabela = f"tabela_{opcao}_{subopcao}_{ano}".replace("-", "_")
-        salvar_dataframe(nome_tabela, df)
+    try:
+        if dados_tabela:
+            df = pd.DataFrame(dados_tabela)
+            nome_tabela = f"tabela_{opcao}_{subopcao}_{ano}".replace("-", "_")
+            salvar_dataframe(nome_tabela, df)
+        return dados_tabela
+    except Exception:
+        return dados_tabela
 
-    return dados_tabela
+    
