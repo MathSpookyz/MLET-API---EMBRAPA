@@ -1,15 +1,22 @@
-Projeto Viniculas - Tech Challenge Fiap
+# Projeto Viniculas - Tech Challenge Fiap
 
-O Projeto segue a seguinte arquitetura:
+**O Projeto segue a seguinte arquitetura:**
+
 /app - raiz do projeto
 - /api - endpoint que podem ser acessados externamente
 - /cache - cache de dados
 - /datasource - acesso a dados externos e banco de dados
 - /security - controle de acesso e geração de token de segurança
+- /infra - infraestrutura e utilitários do sistema
+
 
 ## Arquitetura da aplicação
-![arquitetura](./projeto-fiap.drawio.png)
 
+O projeto segue um arquitetura simples, temos um aplicativo backend consistem em uma API REST que contem um Scraper.
+O site alvo da é o da embrapa.
+E por fim o banco de dados que armazena as buscas do scraper.
+
+![arquitetura](./projeto-fiap.png)
 
 ## Gráfico de fluxo de acesso da aplicação
 ```mermaid
@@ -25,11 +32,22 @@ sequenceDiagram
     end    
     Usuário->>RestBackend: Chamada do endpoint /producao
     RestBackend->> Scraper: Requisita busca de dados da Vinicula
-    Scraper ->> Cache: Valida cache de dados
     Scraper ->> Vitivinicultura: Dados expirados, busca de dados direto no site
+    Scraper ->> Cache: Valida cache de dados
     Vitivinicultura ->> Scraper: Retorno de dados
     RestBackend->>Usuário: Resposta REST com os dados buscados sobre produção
 ```
 
-Buildar imagem com "sudo DOCKER_BUILDKIT=1 docker-compose build"
-Executar imagem com "sudo docker-compose up -d"
+## Execução do Sistema
+
+O sistema funciona com os seguintes comandos:
+
+**Build da imagem docker**
+```bash
+sudo DOCKER_BUILDKIT=1 docker-compose build
+```
+
+**Execução da imagem**
+```bash
+sudo docker-compose up -d
+```
