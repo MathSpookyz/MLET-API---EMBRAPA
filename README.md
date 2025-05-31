@@ -4,7 +4,6 @@
 
 /app - raiz do projeto
 - /api - endpoint que podem ser acessados externamente
-- /cache - cache de dados
 - /datasource - acesso a dados externos e banco de dados
 - /security - controle de acesso e geração de token de segurança
 - /infra - infraestrutura e utilitários do sistema
@@ -28,7 +27,7 @@ sequenceDiagram
     participant Cache
     end
     box Blue Site Embrapa
-    participant Vitivinicultura
+    participant Viticultura
     end    
     Usuário->>RestBackend: Chamada do endpoint /producao
     RestBackend->> Scraper: Requisita busca de dados da Vinicula
