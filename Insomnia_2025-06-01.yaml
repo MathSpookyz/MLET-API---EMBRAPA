@@ -1,0 +1,129 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1700501943202
+  modified: 1700501943202
+collection:
+  - url: https://mlet-api-embrapa-1.onrender.com/login
+    name: Login
+    meta:
+      id: req_e2b952dec3dc4d359ecc19e892c587a4
+      created: 1747586839835
+      modified: 1748481135229
+      isPrivate: false
+      sortKey: -1747894792368.875
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_1f7d775353bd4d47a19a61ceef15425e
+          name: username
+          value: admin
+          disabled: false
+        - id: pair_0a04e884387c4bcbb25785b90e1e66f0
+          name: password
+          value: admin123
+          disabled: false
+    parameters:
+      - id: pair_81daf6fa6680485d866af3a34d14c83f
+        name: username
+        value: admin
+        disabled: false
+      - id: pair_5b00c94504134a1695817cbb69013fdd
+        name: password
+        value: admin123
+        disabled: false
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://mlet-api-embrapa-1.onrender.com/tabelas
+    name: Tabelas
+    meta:
+      id: req_c8fb550186ee4856a81039c1809b6d22
+      created: 1747938785588
+      modified: 1748798737468
+      isPrivate: false
+      sortKey: -1747938785588
+    method: GET
+    parameters:
+      - name: ano_inicio
+        value: "1999"
+      - name: ano_fim
+        value: "1999"
+      - name: opcao
+        value: opt_04
+      - name: intervalo
+        value: "1.5"
+    headers:
+      - name: accept
+        value: application/json
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiJ9.XdcME-smd4VNCkytn_tZrgMWEvU5BwXWs056DXPQJJE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://mlet-api-embrapa-1.onrender.com/tabelas
+    name: Tabelas2
+    meta:
+      id: req_8186b1c20dfb43e3b6740b6aa8d9bf2d
+      created: 1748653008191
+      modified: 1748657513693
+      isPrivate: false
+      sortKey: -1747916788978.4375
+    method: GET
+    parameters:
+      - name: ano_inicio
+        value: "1999"
+      - name: ano_fim
+        value: "2000"
+      - name: opcao
+        value: opt_03
+      - name: intervalo
+        value: "1.5"
+      - name: subopcao
+        value: subopt_02
+    headers:
+      - name: accept
+        value: application/json
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiJ9.XdcME-smd4VNCkytn_tZrgMWEvU5BwXWs056DXPQJJE
+      disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1700501967092
+    modified: 1700501967092
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1700501967088
+    modified: 1700501967088
+    isPrivate: false
