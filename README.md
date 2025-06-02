@@ -117,6 +117,10 @@ Consulta tabelas do site da Embrapa em determinado intervalo de anos.
 
 Abaixo estão listadas as opções de consultas disponíveis na API, organizadas por código (`opt_xx`) e suas respectivas subopções, quando aplicável:
 
+### `ano inicial && ano_final`
+Anos disponíveis para consulta via API
+**Dados fornecidos de 1970 a 2023**.
+
 ### `opt_02` – Produção
 Consulta os dados de **produção**.  
 **Não possui subopções**.
